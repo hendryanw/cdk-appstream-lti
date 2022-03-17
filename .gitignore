@@ -1,1 +1,4 @@
 *.DS_Store
+src/appstream-lti-handler/vendor/*
+src/appstream-lti-handler/__pycache__/*
+src/appstream-lti-handler/.chalice/deployed/*
