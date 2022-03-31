@@ -1,4 +1,4 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
+import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as appstream from 'aws-cdk-lib/aws-appstream';
@@ -78,7 +78,11 @@ export class AppStreamLtiStack extends Stack {
     stackFleetAssociation.addDependsOn(fleet);
     stackFleetAssociation.addDependsOn(stack);
 
-    // LTI API Gateway and Lambda Function
-    
+    new CfnOutput(this, 'fleet-name', {
+      value: fleet.name
+    });
+    new CfnOutput(this, 'stack-name', {
+      value: stack.name!
+    });
   }
 }
